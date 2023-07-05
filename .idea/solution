@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main(void) {
+    int count = 3;
+    int intendedNumber = 5;
+    for (int i = 1; i <= count; i++) {
+        int numberUser;
+        printf("Enter number = ");
+        scanf("%d", &numberUser);
+        if (intendedNumber == numberUser) {
+            printf("YES! \n");
+            break;
+        } else if (intendedNumber > numberUser) {
+            printf("Need more, attempts left = %d \n", count - i);
+        } else {
+            printf("Need less, attempts left = %d \n", count - i);
+        }
+    }
+    printf("Wrong, attempts left = 0");
+}
