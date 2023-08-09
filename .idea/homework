@@ -1,0 +1,33 @@
+<program> ::= <statement> | <program> <statement>
+
+<statement> ::= <assignment_statement> | <input_statement> | <output_statement> | <conditional_statement>
+
+<assignment_statement> ::= <identifier> "=" <expression>
+
+<input_statement> ::= " input (" <identifier> ")"
+
+<output_statement> ::= " output (" <expression> ")"
+
+<conditional_statement> ::= " if (" <expression> ") then " <program> " else " <program>
+
+<expression> ::= <term> | <expression> <add_operator> <term>
+
+<term> ::= <factor> | <term> <mul_operator> <factor>
+
+<factor> ::= <number> | <string> | <identifier> | "(" <expression> ")"
+
+<add_operator> ::= "+" | "-"
+
+<mul_operator> ::= "*" | "/"
+
+<identifier> ::= <letter> | <identifier> <letter> | <identifier> <digit>
+
+<number> ::= <digit> | <number> <digit>
+
+<string> ::= "\"" <character> "\""
+
+<character> ::= <letter> | <digit> | " " | "," | "." | "!" | "?" | "_"
+
+<letter> ::= [a-z] | [A-Z]
+
+<digit> ::= [0-9]
