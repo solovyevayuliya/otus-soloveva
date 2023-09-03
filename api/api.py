@@ -1,24 +1,20 @@
-from flask import Flask, request, jsonify
 from core.Interprete import evaluate_expression
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/exec/')
-def execute_query():
-    query = request.args.get('query')
 
-    try:
-        result = evaluate_expression(query)
-        status = "valid"
-    except SyntaxError:
-        result = None
-        status = "invalid"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    response = {
-        "status": status,
-        "result": result
-    }
-    return jsonify(response)
+
+@app.route('/process', methods=['POST'])
+def process():
+    query = request.form['text'].upper()
+    processed_text = evaluate_expression(query)
+    return str(processed_text)
+
 
 if __name__ == '__main__':
     app.run()
