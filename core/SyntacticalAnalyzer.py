@@ -1,4 +1,4 @@
-from LexicalAnalyzer import tokenize
+from core.Interprete import tokenize
 
 def parse_expression(tokens):
     # Рекурсивная функция для анализа выражения
